@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Style the video: 100% width and height to cover the entire window */
+
+html {
+  scroll-behavior: smooth;
+  padding: 0;
+  margin: 0;
+  background-color: #fff;
+  box-sizing: border-box;
+  
+}
+
+
+.herosection {
+  background-image: url(../public//Fast_to_Ultra.jpg);
+  background-repeat: no-repeat;
+  object-fit: fill;
+  object-position: center;
+  background-size: cover;
+  background-position: center;
+  transition: background-size 1ms ease-in;
+  scroll-behavior: smooth;
+  width: 100vw;
+  height: 90vh;
+}
+
+
+#Lplogin {
+  background-image: url();
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Apply smooth scrolling to your slider */
+.slick-track {
+  display: flex;
+  align-items: center;
+  scroll-behavior: smooth; /* Enable smooth scrolling behavior */
+}
+
+/* defines the animation */
+@keyframes fadeInUp {
+  from { 
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.first {
+  opacity: 0; 
+  animation: fadeInUp 1s ease-in-out 0s forwards;
+  animation-delay: 0.5s;
+}
+
+.second {
+  opacity: 0; 
+  animation: fadeInUp 1s ease-in-out 0s forwards;
+  animation-delay: 1s;
+}
+
+.third {
+  opacity: 0;
+  animation: fadeInUp 1s ease-in-out 0s forwards;
+  animation-delay: 2s;
+
+}
+
+.fourth {
+  opacity: 0;
+  animation: fadeInUp 1s ease-in-out 0s forwards;
+  animation-delay: 3s;
+}
+  
+.five {
+  opacity: 0;
+  animation: fadeInUp 1s ease-in-out 0s forwards;
+  animation-delay: 4s;
+}
+
+/* Preloader.css */
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #121212; /* Background color for the preloader */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loader {
+  border: 8px solid #f3f3f3; /* Light gray border */
+  border-top: 8px solid #64FFAF; /* Blue border */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
