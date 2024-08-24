@@ -7,42 +7,56 @@ const Footer = () => {
                 <h1 className='text-[#aaa] md:text-base text-left text-sm justify-center pb-5'>
                     Website last updated: August 20, 2024
                 </h1>
-                <div className='md:grid md:grid-cols-4 md:gap-x-20 md:max-w-7xl md:mx-auto md:justify-center py-5 text-white'>
-                    <div className='md:pt-8 md:py-16'>
-                        <div className="block md:hidden py-2 md:px-0 text-center mx-auto justify-center">
+                <div className='md:grid md:grid-cols-3 md:gap-x-20 md:max-w-7xl md:mx-auto md:justify-center py-5 text-white'>
+                    <div className='md:pt-8 md:py-16 block md:hidden'>
+                        <div className="py-2 md:px-0 text-center mx-auto justify-center">
                             <a href="/">
                                 <img src='./white-logo.png' className='md:w-72 w-44 md:mx-auto justify-center md:text-center' alt='favicon.png'/>
                             </a>
                         </div>
-                        <h1 className='text-white pt-8 md:pt-0 text-base text-left md:justify-center font-semibold'>
-                            Contact Us
+                    </div>
+                    <div className='md:pt-8 md:py-16'>
+                           <h1 className='text-white pt-8 md:pt-0 text-base md:text-2xl text-left md:justify-center font-semibold'>
+                           About Charginity
                         </h1>
                         <p className='text-sm text-[#C3CDD3] text-left md:justify-center md:pt-4 pt-2'>
-                            zoaib@charginity.com
+                            Charginity is dedicated to advancing sustainable mobility with a robust network of fast and ultra-fast EV charging stations. We collaborate with communities and businesses across the UK, Europe, Asia & Globally , driving innovation and supporting a greener future for all.
                         </p>
                     </div>
                     <div className="hidden md:block py-2 md:px-0 text-center mx-auto justify-center">
                         <a href="/">
-                            <img src='./white-logo.png' className='md:w-72 w-44 mx-auto justify-center text-center' alt='favicon.png'/>
+                            <img src='./footer.png' className='md:w-72 w-44 mx-auto justify-center text-center' alt='favicon.png'/>
                         </a>
-                    </div>
-                    <div className='md:pt-8 pt-10 md:py-16'>
-                        <h1 className='text-white text-base text-left md:justify-center font-semibold'>
-                            Address
-                        </h1>
-                        <p className='text-sm text-[#C3CDD3] text-left md:justify-center md:pt-4 pt-2'>
-                            33 Queen St, London EC4R 1AP
+                        <p className='text-[#26C774] text-xl font-medium'>
+                            Charging Today
+                        </p>
+                        <p className='text-xl font-medium'>
+                            Powering Tomorrow
                         </p>
                     </div>
                     <div className='md:pt-8 pt-8 md:py-16'>
                         <h1 className='text-white text-base text-left md:justify-center font-semibold'>
+                            Address
+                        </h1>
+                        <p className='text-sm text-[#C3CDD3] text-left md:justify-center pt-2'>
+                            33 Queen St, London EC4R 1AP
+                        </p>
+                        <div className='md:pt-5'>
+                            <h1 className='text-white pt-8 md:pt-0 text-base text-left md:justify-center font-semibold'>
+                                Contact Us
+                            </h1>
+                            <p className='text-sm text-[#C3CDD3] text-left md:justify-center pt-2'>
+                                zoaib@charginity.com
+                            </p>
+                        </div>
+                        <h1 className='text-white text-base text-left md:justify-center font-semibold md:pt-5 pt-5'>
                             Community
                         </h1>
-                        <div className="flex flex-row gap-7 pt-5 md:text-center mx-auto text-left md:justify-center">
+                        <div className="flex flex-row gap-7 pt-2 md:text-center mx-auto text-left">
                             <a 
                                 target="_black" href="https://twitter.com/greatwincheste" 
                                 className="text-[#ffffff]
-                                items-center text-sm relative h-8 pt-0.5 uppercase duration-200 flex justify-center flex-row hover:text-[#26C774] active:text-[#26C774]"
+                                items-center text-sm relative h-8 pt-0.5 uppercase duration-200 flex flex-row hover:text-[#26C774] active:text-[#26C774]"
                                 rel="noreferrer">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
