@@ -4,7 +4,7 @@ export default function Art() {
   return (
     <>
         <div className='duration-500 herosection'>
-            <div className='mx-auto justify-center overflow-hidden px-5 text-center align-middle md:py-80 py-48'>
+            <div className='mx-auto justify-center overflow-hidden px-5 text-center align-middle md:py-60 lg:py-80 py-48'>
                 <div className='text-white'>
                     <div className='text-center mx-auto max-w-screen-lg'>
                         <h1 className='second md:text-5xl text-2xl tracking-wider duration-500'>
