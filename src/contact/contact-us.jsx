@@ -1,66 +1,126 @@
+
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+    //     setIsLoading(true);
+    //     setIsSuccess(false);
+    //     setError('');
+
+    //     try {
+    //         const response = await fetch('http://localhost:4000/api/quote-request', {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //             },
+    //             body: JSON.stringify(dataBase),
+    //         });
+
+    //         if (response.ok) {
+    //             setIsSuccess(true);
+    //             setDatabase({ 
+    //                 firstName: "",
+    //                 lastName: "",
+    //                 jobTitle: "",
+    //                 zipCode: "",
+    //                 email: "",
+    //                 number: "",
+    //                 city: "",
+    //                 country: "",
+    //                 message: "" });
+    //         } else {
+    //             const errorText = await response.text();
+    //             setError(`Failed to send your request: ${errorText}`);
+    //         }
+    //     } catch (error) {
+    //         setError(`An error occurred: ${error.message}`);
+    //     } finally {
+    //         setIsLoading(false);
+    //     }
+    // };
+
 import React, { useState } from 'react';
 import Nav from './Navbar';
 
 function QuoteRequestForm() {
+    const [firstName, setFirstname] = useState ('');
+    const [lastName, setLastName] = useState ('');
+    const [jobTitle, setJobtitle] = useState ('');
+    const [zipCode, setZipcode] = useState ('');
+    const [email, setEmail] = useState ('');
+    const [number, setNumber] = useState ('');
+    const [city, setCity] = useState ('');
+    const [country, setCountry] = useState ('');
+    const [message, setMessage] = useState ('');
     const [isLoading, setIsLoading] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
     const [error, setError] = useState('');
-    const [dataBase, setDatabase] = useState ({
-        firstName: "",
-        lastName: "",
-        jobTitle: "",
-        zipCode: "",
-        email: "",
-        number: "",
-        city: "",
-        country: "",
-        message: ""
 
-    })
-    const handleChange = (e) => {
-        setDatabase({
-            ...dataBase,
-            [e.target.name]: e.target.value,
-        });
-    };
+    const handleFirstnameChange = (event) => {
+        setFirstname(event.target.value);
+    }
+    const handleLastNameChange = (event) => {
+        setLastName(event.target.value);
+    }
+    const handleJobtitleChange = (event) => {
+        setJobtitle(event.target.value);
+    }
+    const handleZipcodeChange = (event) => {
+        setZipcode(event.target.value);
+    }
+    const handleEmailChange = (event) => {
+        setEmail(event.target.value);
+    }
+    const handleNumderChange = (event) => {
+        setNumber(event.target.value);
+    }
+    const handleCityChange = (event) => {
+        setCity(event.target.value);
+    }
+    const handleCountryChange = (event) => {
+        setCountry(event.target.value);
+    }
+    const handleMessageChange = (event) => {
+        setMessage(event.target.value);
+    }
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
         setIsLoading(true);
         setIsSuccess(false);
         setError('');
-
+    
         try {
             const response = await fetch('http://localhost:4000/api/quote-request', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(dataBase),
+                body: JSON.stringify({
+                    firstName,
+                    lastName,
+                    jobTitle,
+                    zipCode,
+                    email,
+                    number,
+                    city,
+                    country,
+                    message,
+                }),
             });
-
-            if (response.ok) {
-                setIsSuccess(true);
-                setDatabase({ 
-                    firstName: "",
-                    lastName: "",
-                    jobTitle: "",
-                    zipCode: "",
-                    email: "",
-                    number: "",
-                    city: "",
-                    country: "",
-                    message: "" });
-            } else {
+    
+            if (!response.ok) {
                 const errorText = await response.text();
-                setError(`Failed to send your request: ${errorText}`);
+                throw new Error(`Failed to send your request: ${errorText}`);
             }
+    
+            setIsSuccess(true);
         } catch (error) {
             setError(`An error occurred: ${error.message}`);
         } finally {
             setIsLoading(false);
         }
     };
+    
     
 
   return (
@@ -86,10 +146,8 @@ function QuoteRequestForm() {
                                 <input
                                     className='bg-[#E9E9EB] border border-opacity-30 py-2 mt-2 w-full px-4 mx-auto rounded-lg'
                                     type="text"
-                                    id="firstName"
-                                    firstName="firstName"
-                                    value={dataBase.firstName}
-                                    onChange={handleChange}
+                                    value={firstName}
+                                    onChange={handleFirstnameChange}
                                     required
                                 />
 
@@ -99,10 +157,8 @@ function QuoteRequestForm() {
                                 <input
                                     className='bg-[#E9E9EB] border border-opacity-30 mt-2 py-2 w-full px-4 mx-auto rounded-lg'
                                     type="text"
-                                    id="lastName"
-                                    lastName="lastName"
-                                    value={dataBase.lastName}
-                                    onChange={handleChange}
+                                    value={lastName}
+                                    onChange={handleLastNameChange}
                                     required
                                 />
                             </div>
@@ -114,10 +170,8 @@ function QuoteRequestForm() {
                                         className='bg-[#E9E9EB] border border-opacity-30 py-2 w-full px-4 mx-auto rounded-lg mt-2'
                                         placeholder='Job Title'
                                         type="text"
-                                        id="jobTitle"
-                                        jobTitle="jobTitle"
-                                        value={dataBase.jobTitle}
-                                        onChange={handleChange}
+                                        value={jobTitle}
+                                        onChange={handleJobtitleChange}
                                         required
                                 >
                                         <option disabled>Select</option>
@@ -140,10 +194,8 @@ function QuoteRequestForm() {
                                     className='bg-[#E9E9EB] border border-opacity-30 py-2 w-full px-4 mx-auto rounded-lg mt-2'
                                     placeholder='Zip Code'
                                     type="text"
-                                    id="zipCode"
-                                    zipCode="zipCode"
-                                    value={dataBase.zipCode}
-                                    onChange={handleChange}
+                                    value={zipCode}
+                                    onChange={handleZipcodeChange}
                                     required
                                 />
                             </div>
@@ -153,10 +205,8 @@ function QuoteRequestForm() {
                                     className='bg-[#E9E9EB] border border-opacity-30 py-2 w-full px-4 mx-auto rounded-lg mt-2'
                                     placeholder='e.g. name@example.com'
                                     type="email"
-                                    id="email"
-                                    email="email"
-                                    value={dataBase.email}
-                                    onChange={handleChange}
+                                    value={email}
+                                    onChange={handleEmailChange}
                                     required
                                 />
                             </div>
@@ -166,10 +216,8 @@ function QuoteRequestForm() {
                                     className='bg-[#E9E9EB] border border-opacity-30 py-2 w-full px-4 mx-auto rounded-lg mt-2'
                                     placeholder='e.g. 0031 XXXXXXXXXXXXX'
                                     type="number"
-                                    id="number"
-                                    number="number"
-                                    value={dataBase.number}
-                                    onChange={handleChange}
+                                    value={number}
+                                    onChange={handleNumderChange}
                                     required
                                 />
                             </div>
@@ -179,10 +227,8 @@ function QuoteRequestForm() {
                                     className='bg-[#E9E9EB] border border-opacity-30 py-2 w-full px-4 mx-auto rounded-lg mt-2'
                                     placeholder='City'
                                     type="text"
-                                    id="city"
-                                    city="city"
-                                    value={dataBase.city}
-                                    onChange={handleChange}
+                                    value={city}
+                                    onChange={handleCityChange}
                                     required
                                 />
                             </div>
@@ -191,10 +237,8 @@ function QuoteRequestForm() {
                                 <select
                                     className='bg-[#E9E9EB] border border-opacity-30 py-2 w-full px-4 mx-auto rounded-lg mt-2'
                                     type="text"
-                                    id="country"
-                                    country="country"
-                                    value={dataBase.country}
-                                    onChange={handleChange}
+                                    value={country}
+                                    onChange={handleCountryChange}
                                     required
                                 >
                                     <option value="">Select a country</option>
@@ -402,13 +446,12 @@ function QuoteRequestForm() {
                         className='bg-[#E9E9EB] border border-opacity-30 pb-52 py-5 w-full px-4 mx-auto rounded-lg mt-8 overflow-y-hidden'
                         placeholder='Message'
                         type="text"
-                        id="message"
-                        value={dataBase.message}
+                        value={message}
                         required
-                        onChange={handleChange}
+                        onChange={handleMessageChange}
                     />
                     <div className='items-center'>
-                        <button type="submit" disabled={isLoading} className='bg-[#08CEAB] px-10 tracking-wider py-2 md:mt-10 mt-5 text-black'>
+                        <button value={handleSubmit} type="submit" disabled={isLoading} className='bg-[#08CEAB] px-10 tracking-wider py-2 md:mt-10 mt-5 text-black'>
                             {isLoading ? 'Loading...' : 'Submit'}
                         </button>
                     </div>
