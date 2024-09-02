@@ -90,7 +90,7 @@ function QuoteRequestForm() {
         setError('');
     
         try {
-            const response = await fetch('http://localhost:4000/api/quote-request', {
+            const response = await fetch('https://charginitydatabase.adaptable.app/api/quote-request', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
