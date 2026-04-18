@@ -39,12 +39,6 @@ const Footer = () => {
                             <p className='text-sm text-[#C3CDD3] text-left md:justify-center pt-2'>
                                 info@charginity.com
                             </p>
-                            <p className='text-sm text-[#C3CDD3] text-left md:justify-center'>
-                                zoaib@charginity.com
-                            </p>
-                            <p className='text-sm text-[#C3CDD3] text-left md:justify-center'>
-                                safi@charginity.com
-                            </p>
                         </div>
                         <h1 className='text-white text-base text-left md:justify-center font-semibold md:pt-5 pt-5'>
                             Community
