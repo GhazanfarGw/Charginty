@@ -95,12 +95,12 @@ const Footer = () => {
                     </div>
                 </div>
                 <h1 className='text-[#aaa] hidden md:block md:text-base text-left md:text-center text-sm justify-center pb-5'>
-                    Website last updated: August 27, 2024
+                    Website last updated: April 23, 2026
                 </h1>
                 <div className='justify-center mx-auto md:text-center md:px-5 md:pb-5'>
                     <div className='border-b border-[#08CEAB]'/>
                         <p className='text-xs text-[#C3CDD3] pt-5'>
-                            Charginity &copy; 2024. All right reserved.
+                            Charginity &copy; 2026. All right reserved.
                         </p>
                     </div>
                 </div>
